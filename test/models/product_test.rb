@@ -44,9 +44,7 @@ class ProductTest < ActiveSupport::TestCase
       assert new_product(name).invalid?, "#{name} shouldn't be valid"
     end
   end
-
-  fixtures :products
-
+  
   test "product is not valid without a unique title" do
     product = Product.new(title: products(:ruby).title,
                           description: "yyy",
@@ -54,6 +52,7 @@ class ProductTest < ActiveSupport::TestCase
                           image_url: "fred.gif")
     assert product.invalid?
     assert_equal ["has already been taken"], product.errors[:title]
+  end
 
   test "product is not valid without a unique title - i18n" do
     product = Product.new(title: products(:ruby).title,
@@ -64,4 +63,8 @@ class ProductTest < ActiveSupport::TestCase
     assert_equal [I18n.translate('errors.messages.taken')],
                   product.errors[:title]
   end
+  
+  fixtures :products
+
+  
 end
