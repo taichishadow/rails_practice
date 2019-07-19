@@ -38,9 +38,9 @@ class CartsController < ApplicationController
   end
 
   #宏傑自己加
-  def line_items
-    @returnCount = LineItem.all.count
-  end
+  #def line_items
+  # @returnCount = LineItem.all.count
+  #end
 
   # PATCH/PUT /carts/1
   # PATCH/PUT /carts/1.json
