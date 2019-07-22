@@ -1,6 +1,6 @@
 <!--這一頁是application的partial view-->
 <% unless cart.line_items.empty? %>
-<h2>Your Cart</h2>
+<h2>Your Cart(This is _cart)</h2>
 <table>
     <!--抓出line_item的partial view-->
     <%= render(cart.line_items) %>

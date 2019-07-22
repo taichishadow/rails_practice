@@ -9,9 +9,16 @@ class Order < ApplicationRecord
     validates :pay_type, inclusion: pay_types.keys
 
     def add_line_items_from_cart(cart)
+        order_items = []
         cart.line_items.each do |item|
             item.cart_id = nil
-            line_items << item
+            order_items << item
+            # line_items << item
         end
+        line_items + order_items
     end
 end
+
+# order = Order.new(id: 4)
+# order.add_line_items_from_cart(cart)
+# order.line_items     #  [XXX, OOO, AAA] = cart.line_items
