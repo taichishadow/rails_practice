@@ -27,13 +27,14 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create
     product = Product.find(params[:product_id])
-    @cart = Cart.find(params[:cart_id])
+    #@cart = Cart.find(params[:cart_id])暫時先註解
     @line_item = @cart.add_product(product)
     #@line_item = @cart.line_items.build(product: product)
     #@line_item = LineItem.new(line_item_params)
 
     respond_to do |format|
       if @line_item.save
+        puts(format)
         format.html { redirect_to store_index_url }
         format.js { @current_item = @line_item }
         #format.html { redirect_to @line_item.cart }
