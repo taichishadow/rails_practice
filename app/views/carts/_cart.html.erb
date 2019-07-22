@@ -1,6 +1,8 @@
+<!--這一頁是application的partial view-->
 <% unless cart.line_items.empty? %>
 <h2>Your Cart</h2>
 <table>
+    <!--抓出line_item的partial view-->
     <%= render(cart.line_items) %>
     <tr class="total_line">
         <td colspan="2">Total</td>

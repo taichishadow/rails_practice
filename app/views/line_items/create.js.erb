@@ -1,11 +1,4 @@
-alert("123");
-
-$('#notice').hide();
-
-if($('#cart tr').length===1){ $('#cart').show('blind', 1000); }
-
 $('#cart').html("<%= j render(@cart) %>");
-console.log(<%= @cart %>);
-
-$('#current_item').css({'background-color:'#88ff88'}).
-    animate({'background-color':'#114411'}, 1000);
+<!--標記使用-->
+$('#current_item').css({'background-color':'#88ff88'}).
+    animate({'background-color':'#114411'}, 1000)

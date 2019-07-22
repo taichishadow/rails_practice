@@ -1,11 +1,12 @@
 class ProductsController < ApplicationController
+  include CurrentCart
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_cart
 
   # GET /products
   # GET /products.json
   def index
     @products = Product.all
-    @cart = Cart.last
   end
 
   # GET /products/1

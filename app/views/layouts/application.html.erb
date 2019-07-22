@@ -16,6 +16,7 @@
     <div id="side">
       <div id="cart" <% if @cart.line_items.empty? %> style="display: none" <% end %> >
         <% if @cart %>
+          <!--把cart的partial view印出來-->
           <%= render @cart %>
         <% end %>
       </div>
@@ -28,8 +29,10 @@
       <%= yield %>
     </div>
   </div>
+  <!--
   <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %> 
     <%= render @cart %>
   <% end %>
+  -->
 </body>
 </html>
