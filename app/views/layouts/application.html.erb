@@ -14,7 +14,7 @@
   </div>
   <div id="columns">
     <div id="side">
-      <div id="cart" <% if @cart.line_items.empty? %> style="display: none" <% end %> >
+      <div id="cart">
         <% if @cart %>
           <!--把cart的partial view印出來-->
           <%= render @cart %>
