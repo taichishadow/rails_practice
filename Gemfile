@@ -64,3 +64,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'bcrypt', '~>3.1.7'
+gem 'rack-cors'

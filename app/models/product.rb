@@ -14,12 +14,18 @@ class Product < ApplicationRecord
     has_many :line_items
     has_many :orders, through: :line_items
     before_destroy :ensure_not_referenced_by_any_line_item
+
+    public
+    def self.getProductLineitem
+        Product.includes(:line_items)
+    end
+
     private
-        # ensure that there are no line items referencing this product
-        def ensure_not_referenced_by_any_line_item
-            unless line_items.empty?
-                errors.add(:base, 'Line Items present')
-                throw :abort
-            end
+    # ensure that there are no line items referencing this product
+    def ensure_not_referenced_by_any_line_item
+        unless line_items.empty?
+            errors.add(:base, 'Line Items present')
+            throw :abort
         end
+    end
 end
